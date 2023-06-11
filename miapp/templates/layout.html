@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+        Sitio web con django
+    </title>
+    
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+</head>
+
+<body>
+    <header>
+        <div id="logotipo">
+
+            <!--logo django-->
+            <img src="{%static 'imagenes/logo.png'%}">
+            <h1>Sitio web con django</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{%url 'Inicio'%}">Inicio</a></li>
+            <li><a href="{%url 'articulos'%}">Articulos</a></li>
+            <li><a href="{%url 'create'%}">Crear articulo</a></li>
+            <li><a href="{%url 'create_full'%}">Crear articulo 2</a></li>
+            <li><a href="{%url 'hola_mundo'%}">Hola Mundo</a></li>
+            <li><a href="{%url 'pagina'%}">Pagina pruebas</a></li>
+            <li><a href="{%url 'Contacto' 'Juan' 'Herrera'%}">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+    <div id="content">
+        <div class="box">
+            {% block content %}
+            <strong>Contenido original</strong>
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer>
+        Master en python &copy - {%now "d/m/Y"%}
+    </footer>
+</body>
+
+</html>
